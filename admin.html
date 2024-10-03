@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Inventory Management</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+        <button id="logoutBtn">Logout</button>
+    </header>
+
+    <div id="adminOptions">
+        <button id="addItemBtn">Add Item to Inventory</button>
+        <button id="readInventoryBtn">Read Inventory</button>
+        <button id="updateItemBtn">Update Item</button>
+        <button id="deleteItemBtn">Delete Item</button>
+        <button id="editCreditLimitBtn">Edit Customer Credit Limit</button>
+    </div>
+
+    <!-- Add Item Section -->
+    <section id="addItemSection" class="hidden">
+        <h2>Add Item to Inventory</h2>
+        <form id="inventoryForm">
+            <input type="text" id="id" placeholder="Item ID" required>
+            <input type="text" id="cat_id" placeholder="Category ID" required>
+            <input type="text" id="title" placeholder="Title" required>
+            <input type="text" id="description" placeholder="Description" required>
+            <input type="number" id="quantity" placeholder="Quantity" required>
+            <input type="number" id="price" placeholder="Price" required>
+            <input type="file" id="image" accept="image/*" required>
+            <button type="submit">Add Item</button>
+        </form>
+    </section>
+
+    <!-- Read Inventory Section -->
+    <section id="inventorySection" class="hidden">
+        <h2>Inventory List</h2>
+        <table id="inventoryTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Category ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody id="inventoryList"></tbody>
+        </table>
+    </section>
+
+    <!-- Update Item Section -->
+    <section id="updateItemSection" class="hidden">
+        <h2>Update Item</h2>
+        <input type="text" id="updateItemId" placeholder="Enter Item ID to Update" required>
+        <button id="fetchItemBtn">Fetch Item</button>
+        <div id="itemDetails" class="hidden">
+            <input type="text" id="updateCatId" placeholder="Category ID">
+            <input type="text" id="updateTitle" placeholder="Title">
+            <input type="text" id="updateDescription" placeholder="Description">
+            <input type="number" id="updateQuantity" placeholder="Quantity">
+            <input type="number" id="updatePrice" placeholder="Price">
+            <input type="file" id="updateImage" accept="image/*">
+            <button id="updateRecordBtn">Update Item</button>
+        </div>
+    </section>
+
+    <!-- Delete Item Section -->
+    <section id="deleteItemSection" class="hidden">
+        <h2>Delete Item</h2>
+        <input type="text" id="deleteItemId" placeholder="Enter Item ID to Delete" required>
+        <button id="deleteItemBtnAction">Delete Item</button>
+    </section>
+
+    <!-- Edit Credit Limit Section -->
+    <section id="creditLimitSection" class="hidden">
+        <h2>Edit Customer Credit Limit</h2>
+        <form id="editCreditLimitForm">
+            <input type="email" id="customer-email" placeholder="Customer Email" required>
+            <input type="number" id="credit-limit" placeholder="New Credit Limit" required>
+            <button type="submit">Update Credit Limit</button>
+        </form>
+    </section>
+
+    <script src="inventory.js"></script>
+</body>
+
+</html>
